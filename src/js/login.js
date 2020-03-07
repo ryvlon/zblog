@@ -1,27 +1,29 @@
 var baseUrl = "http://localhost:3000/";
+
 $(document).ready(function() {
-  $("form").submit(function(event) {
-    event.stopPropagation();
-    event.stopPropagation;
-    var tmpData = $("form").serializeArray(),
+  var $form = $("#form");
+  $form.submit(function(e) {
+    var tempData = $form.serializeArray(),
       data = {};
-    $.each(tmpData, function() {
-      data[this.name] = this.value;
+    $.each(tempData, function(i, item) {
+      data[item.name] = item.value;
     });
-    console.log(data, "data");
     var settings = {
-        data: JSON.stringify(data),
+        method: "GET",
+        data: data,
         error: function(error) {
-          console.log(error, "res");
+          alert("登陆失败：" + error.responseText);
           return;
         },
         success: function(data, textStatus) {
           console.log(data, "res");
+        //   location.url = "./home.html";
+          window.location.href = '../html/home.html'
           return;
         }
       },
-      url = baseUrl + "login";
+      url = baseUrl + "user/login";
     $.ajax(url, settings);
-    return;
+    e.preventDefault();
   });
 });
