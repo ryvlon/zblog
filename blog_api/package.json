@@ -1,0 +1,22 @@
+{
+  "name": "blog_api",
+  "version": "0.0.1",
+  "description": "blog api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint --fix",
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "blog",
+    "api"
+  ],
+  "author": "vagren",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  }
+}
